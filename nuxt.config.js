@@ -1,7 +1,16 @@
 
 export default {
   
-
+  routes: [
+    {
+      path: '/',
+      component: '~/pages/index.vue', // Default route (Firestore)
+    },
+    {
+      path: '/statistics',
+      component: '~/pages/statistics.vue', // Statistics route
+    },
+  ],
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'logignstatics',
@@ -18,12 +27,26 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  components: true,
 
+  publicRuntimeConfig: {
+    GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID || '25988846759-tglusq49pu3ig8u80621b86g6dlltvtg.apps.googleusercontent.com',
+  },
+  
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     'element-ui/lib/theme-chalk/index.css'
   ],
-
+// server: {
+//     port: 3000,
+//     proxy: {
+//       "/auth": {
+//         target: "http://localhost:3000",
+//         changeOrigin: true,
+//         secure: false,
+//       },
+//     },
+//   },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/element-ui'
